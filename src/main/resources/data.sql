@@ -1,4 +1,4 @@
-DELETE FROM addons;
+/*DELETE FROM addons;
 
 INSERT INTO addons (active,name,price)
 VALUES(1,"Alface",0.4),
@@ -26,6 +26,6 @@ INSERT INTO composition(product_id ,addon_id )
 VALUES (3,3),(3,4),(3,5);
 
 INSERT INTO products (active,base_price,description,name )
-VALUES (1,0,"Café da manhã de americano","X-Egg");
+VALUES (1,0,"Café da manhã de americano","X-Egg Bacon");
 INSERT INTO composition(product_id ,addon_id ) 
-VALUES (4,2),(4,3),(4,4),(4,5);
+VALUES (4,2),(4,3),(4,4),(4,5);*/

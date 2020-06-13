@@ -2,7 +2,12 @@ package com.thejaum.challenge.sandwich.models;
 
 import java.math.BigDecimal;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -28,8 +33,17 @@ public class Addon {
 	private String name;
 	
 	@Column(name="price",precision=12, scale=2)
-	private BigDecimal price;	
+	private BigDecimal price;
+
+	public Addon() {
+	}
+	public Addon(Integer id, boolean active, String name, BigDecimal price) {
+		super();
+		this.id = id;
+		this.active = active;
+		this.name = name;
+		this.price = price;
+	}	
 	
-	
-	
+		
 }
