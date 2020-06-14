@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,15 +24,29 @@ public class OrderController {
 		this.service = service;
 	}
 	
+	
+	@GetMapping
+	public ResponseEntity<?> getAll(
+			@RequestParam(value="status", required=false) String status) {
+		return new ResponseEntity<>(service.getAllByQueryStringParameters(status),HttpStatus.OK);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> getById(
+			@PathVariable("id") int id){
+		return null;
+	}
+	
 	@PostMapping
 	@Transactional(rollbackFor = Exception.class)
 	public ResponseEntity<?> create() {
         return new ResponseEntity<>(service.createNewOrder(),HttpStatus.CREATED);
     }
 	
-	@GetMapping
-	public ResponseEntity<?> getAll(
-			@RequestParam(value="status", required=false) String status) {
-		return new ResponseEntity<>(service.getAllByQueryStringParameters(status),HttpStatus.OK);
+	@PostMapping
+	@Transactional(rollbackFor = Exception.class)
+	public ResponseEntity<?> addItem(
+			) {
+		return null;
 	}
 }

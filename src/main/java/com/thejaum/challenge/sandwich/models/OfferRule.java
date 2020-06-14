@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,8 +30,8 @@ public class OfferRule {
     private Integer id;
 	
 	@ManyToOne
-	@JoinColumn(name="addon_id", nullable = false)
-	private Addon product;
+	@JoinColumn(name="addon_id",referencedColumnName="addon_id", nullable = false)
+	private Addon addon;
 	
 	@Column(name="amount")
 	private int amount;
@@ -39,6 +41,7 @@ public class OfferRule {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn (name="offer_id",referencedColumnName="offer_id",nullable=false,unique=false)
+	@JsonBackReference
 	private Offer offer;
 }
 
