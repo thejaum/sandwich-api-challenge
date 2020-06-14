@@ -1,4 +1,4 @@
-DELETE FROM composition;
+/*DELETE FROM composition;
 
 DELETE FROM addons;
 INSERT INTO addons (active,name,price)
@@ -45,4 +45,4 @@ VALUES (2,3,3,1);
 INSERT INTO offers (active,identifier_name,description,discount,accumulative,whole_order)
 VALUES (1,"MUITO_QUEIJO","Mais queijo por favor!",33,1,0);
 INSERT INTO offer_rules (offer_id,addon_id,amount,presence)
-VALUES (3,5,3,1);
+VALUES (3,5,3,1);*/

@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.thejaum.challenge.sandwich.models.Addon;
 
-public interface IAddonRepository extends CrudRepository<Addon,Integer>{
+public interface AddonRepository extends CrudRepository<Addon,Integer>{
 	List<Addon> findByActiveTrue();
 }

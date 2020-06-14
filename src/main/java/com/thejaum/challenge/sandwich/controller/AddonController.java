@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.thejaum.challenge.sandwich.models.Addon;
-import com.thejaum.challenge.sandwich.repository.IAddonRepository;
+import com.thejaum.challenge.sandwich.repository.AddonRepository;
 
 @RestController
 @RequestMapping("v1/addons")
 public class AddonController {
 
 	@Autowired
-	private final IAddonRepository repository;
+	private final AddonRepository repository;
 	
-	public AddonController(IAddonRepository repository) {
+	public AddonController(AddonRepository repository) {
 		this.repository = repository;
 	}
 	

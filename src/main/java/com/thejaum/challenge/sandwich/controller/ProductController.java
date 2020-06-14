@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.thejaum.challenge.sandwich.models.Product;
-import com.thejaum.challenge.sandwich.repository.IProductRepository;
+import com.thejaum.challenge.sandwich.repository.ProductRepository;
 
 @RestController
 @RequestMapping("v1/products")
 public class ProductController {
 
 	@Autowired
-	private final IProductRepository repository;
+	private final ProductRepository repository;
 
-	public ProductController(IProductRepository repository) {
+	public ProductController(ProductRepository repository) {
 		super();
 		this.repository = repository;
 	}
