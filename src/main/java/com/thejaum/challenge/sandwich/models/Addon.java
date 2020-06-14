@@ -1,6 +1,7 @@
 package com.thejaum.challenge.sandwich.models;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,9 +25,10 @@ public class Addon {
 	
 	@EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	@Column(name="addon_id")
-    private Integer id;
+    private UUID id;
 	
 	@Column(name="active")
 	private boolean active;
@@ -37,13 +41,12 @@ public class Addon {
 
 	public Addon() {
 	}
-	public Addon(Integer id, boolean active, String name, BigDecimal price) {
+
+	public Addon(UUID id, boolean active, String name, BigDecimal price) {
 		super();
 		this.id = id;
 		this.active = active;
 		this.name = name;
 		this.price = price;
 	}	
-	
-		
 }

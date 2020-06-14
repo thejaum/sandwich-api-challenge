@@ -28,7 +28,7 @@ public class OfferController {
 	@GetMapping
 	public ResponseEntity<?> getAll(){
 		try {
-			List<Offer> offer_list = service.getActiveOfferList();
+			List<Offer> offer_list = service.getOfferList();
 			return new ResponseEntity<>(offer_list, HttpStatus.OK);
 		}catch(Exception ex) {
 			//LOG Error.

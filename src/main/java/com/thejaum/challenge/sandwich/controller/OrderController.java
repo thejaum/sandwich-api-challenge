@@ -31,9 +31,9 @@ public class OrderController {
 		return new ResponseEntity<>(service.getAllByQueryStringParameters(status),HttpStatus.OK);
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{order_id}")
 	public ResponseEntity<?> getById(
-			@PathVariable("id") int id){
+			@PathVariable("order_id") int id){
 		return null;
 	}
 	
@@ -43,10 +43,10 @@ public class OrderController {
         return new ResponseEntity<>(service.createNewOrder(),HttpStatus.CREATED);
     }
 	
-	@PostMapping
+	@PostMapping("/{order_id}/itens/")
 	@Transactional(rollbackFor = Exception.class)
 	public ResponseEntity<?> addItem(
-			) {
+			@PathVariable("order_id") int id) {
 		return null;
 	}
 }

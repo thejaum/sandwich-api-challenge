@@ -1,6 +1,7 @@
 package com.thejaum.challenge.sandwich.models;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -26,9 +29,10 @@ public class Offer {
 	
 	@EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	@Column(name="offer_id")
-    private Integer id;
+    private UUID id;
 	
 	@Column(name="active",nullable=false)
 	private boolean active;

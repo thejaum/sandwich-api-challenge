@@ -2,6 +2,7 @@ package com.thejaum.challenge.sandwich.models;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -27,9 +30,10 @@ public class OrderItem {
 
 	@EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	@Column(name="order_item_id")
-    private Integer id;
+    private UUID id;
 	
 	@Column(name="sale_value",precision=12, scale=2)
 	private BigDecimal value;	
