@@ -15,7 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -31,7 +31,7 @@ public class Product {
 	@EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	@Type(type="uuid-char")
 	@Column(name="product_id")
     private UUID id;
 	

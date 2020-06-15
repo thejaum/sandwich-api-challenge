@@ -1,6 +1,7 @@
 package com.thejaum.challenge.sandwich.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,7 +38,7 @@ public class OfferController {
 	}
 	@GetMapping("/{id}")
 	public ResponseEntity<?> getById(
-			@PathVariable(value = "id") int id){
+			@PathVariable(value = "id") UUID id){
 		try {
 			return new ResponseEntity<>(service.getOfferById(id), HttpStatus.OK);
 		}catch(Exception ex) {

@@ -1,4 +1,4 @@
-DELETE FROM composition;
+/*DELETE FROM composition;
 DELETE FROM products;
 DELETE FROM addons;
 
@@ -60,4 +60,4 @@ INSERT INTO offers (offer_id,active,identifier_name,description,discount,accumul
 VALUES (uuid(),1,"MUITO_QUEIJO","Mais queijo por favor!",33,1,0);
 SELECT offer_id from offers where identifier_name="MUITO_QUEIJO" into @offer_key;
 INSERT INTO offer_rules (offer_rule_id,offer_id,addon_id,amount,presence)
-VALUES (uuid(),@offer_key,@queijo,3,1);
+VALUES (uuid(),@offer_key,@queijo,3,1);*/

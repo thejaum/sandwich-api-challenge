@@ -1,6 +1,5 @@
 package com.thejaum.challenge.sandwich.models;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -8,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
@@ -19,34 +20,25 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "addons")
+@Table(name = "additionals")
 @Entity
-public class Addon {
-	
+public class Additional {
+
 	@EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Type(type="uuid-char")
-	@Column(name="addon_id")
+	@Column(name="additional_id")
     private UUID id;
 	
-	@Column(name="active")
-	private boolean active;
+	@ManyToOne
+	@JoinColumn(name="addon_id", nullable = false)
+	private Addon addon;
 	
-	@Column(name="name")
-	private String name;
+	@ManyToOne
+	@JoinColumn(name="order_item_id", nullable = false)
+	private OrderItem orderItem;
 	
-	@Column(name="price",precision=12, scale=2)
-	private BigDecimal price;
-
-	public Addon() {
-	}
-
-	public Addon(UUID id, boolean active, String name, BigDecimal price) {
-		super();
-		this.id = id;
-		this.active = active;
-		this.name = name;
-		this.price = price;
-	}	
+	@Column(name = "amount")
+	private int amount;
 }

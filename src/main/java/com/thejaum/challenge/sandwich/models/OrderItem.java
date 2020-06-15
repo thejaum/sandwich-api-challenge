@@ -15,7 +15,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -31,7 +33,7 @@ public class OrderItem {
 	@EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	@Type(type="uuid-char")
 	@Column(name="order_item_id")
     private UUID id;
 	
@@ -44,13 +46,8 @@ public class OrderItem {
 	
 	@ManyToOne
 	@JoinColumn(name="order_id", nullable = false)
+	@JsonBackReference
 	private Order order;
-	
-	@ManyToMany
-	@JoinTable(name="additional",
-				joinColumns = @JoinColumn(name = "order_item_id"),
-				inverseJoinColumns = @JoinColumn(name = "addon_id"))
-	private List<Addon> additionals;
 	
 	@ManyToMany
 	@JoinTable(name="promotional",

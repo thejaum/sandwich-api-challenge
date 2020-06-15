@@ -33,6 +33,16 @@ Simulação de pedido:
 	Light -> false
 	Muita Carne : true -> Accumulative : true -> qtd : 1x -> Desconto : 3,00
 	Muito Queijo -> false;
+Request para simular ->
+{
+  "addon_list": [
+    "21d000df-ae9b-11ea-8e79-0242ac170002",
+    "21d000df-ae9b-11ea-8e79-0242ac170002",
+    "21d001ed-ae9b-11ea-8e79-0242ac170002"
+  ],
+  "product_id": "21d2635a-ae9b-11ea-8e79-0242ac170002"
+}
+
 2 - 
 	Produto -> X-Burguer
 	Adicionais -> + 1 Alface

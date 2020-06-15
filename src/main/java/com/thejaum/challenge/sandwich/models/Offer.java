@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -30,7 +30,7 @@ public class Offer {
 	@EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	@Type(type="uuid-char")
 	@Column(name="offer_id")
     private UUID id;
 	
@@ -40,7 +40,7 @@ public class Offer {
 	@Column(name="description")
 	private String description;
 	
-	@Column(name="identifier_name",nullable=false)
+	@Column(name="identifier_name",nullable=false,unique = true)
 	private String identifierName;
 	
 	@Column(name="discount",nullable=false)
