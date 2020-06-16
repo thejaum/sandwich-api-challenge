@@ -16,7 +16,7 @@ import com.thejaum.challenge.sandwich.models.Addon;
 import com.thejaum.challenge.sandwich.repository.AddonRepository;
 
 @RestController
-@RequestMapping("v1/addons")
+@RequestMapping("v1")
 public class AddonController {
 
 	@Autowired
@@ -26,7 +26,7 @@ public class AddonController {
 		this.repository = repository;
 	}
 	
-	@GetMapping
+	@GetMapping("/admin/addons")
 	public ResponseEntity<?> getAll(){
 		try {
 			List<Addon> addon_list = repository.findByActiveTrue();
