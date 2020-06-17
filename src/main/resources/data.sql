@@ -1,11 +1,17 @@
 DELETE FROM composition;
+DELETE FROM promotional;
+DELETE FROM additionals;
+
+DELETE FROM offer_rules;
+DELETE FROM offers;
+
+DELETE FROM order_itens;
+DELETE FROM orders;
+
 DELETE FROM products;
 DELETE FROM addons;
 
 DELETE FROM users;
-
-DELETE FROM offer_rules;
-DELETE FROM offers;
 
 /*
  * Insert Addons
