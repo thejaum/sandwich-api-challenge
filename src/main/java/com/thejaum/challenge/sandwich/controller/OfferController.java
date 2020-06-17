@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import com.thejaum.challenge.sandwich.models.Offer;
 import com.thejaum.challenge.sandwich.service.OfferService;
 
 @RestController
-@RequestMapping("v1/offers")
+@RequestMapping("v1")
 public class OfferController {
 
 	@Autowired
@@ -26,7 +27,7 @@ public class OfferController {
 		this.service = service;
 	}
 	
-	@GetMapping
+	@GetMapping("/protected/offers")
 	public ResponseEntity<?> getAll(){
 		try {
 			List<Offer> offer_list = service.getOfferList();
@@ -36,7 +37,8 @@ public class OfferController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	@GetMapping("/{id}")
+	
+	@GetMapping("/protected/offers/{id}")
 	public ResponseEntity<?> getById(
 			@PathVariable(value = "id") UUID id){
 		try {

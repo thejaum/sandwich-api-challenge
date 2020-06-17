@@ -2,16 +2,17 @@ package com.thejaum.challenge.sandwich.controller;
 
 import java.util.List;
 
+import org.apache.commons.collections4.IterableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.thejaum.challenge.sandwich.dto.AddItemOrderDTO;
 import com.thejaum.challenge.sandwich.models.Addon;
 import com.thejaum.challenge.sandwich.repository.AddonRepository;
 
@@ -19,6 +20,7 @@ import com.thejaum.challenge.sandwich.repository.AddonRepository;
 @RequestMapping("v1")
 public class AddonController {
 
+	
 	@Autowired
 	private final AddonRepository repository;
 	
@@ -26,10 +28,12 @@ public class AddonController {
 		this.repository = repository;
 	}
 	
-	@GetMapping("/admin/addons")
-	public ResponseEntity<?> getAll(){
+	@GetMapping("/protected/addons")
+	public ResponseEntity<?> getAll(
+			//@RequestHeader(name = "Authorization") String auth
+			){
 		try {
-			List<Addon> addon_list = repository.findByActiveTrue();
+			List<Addon> addon_list = IterableUtils.toList(repository.findAll());
 			return new ResponseEntity<>(addon_list, HttpStatus.OK);
 		}catch(Exception ex) {
 			//LOG Error.

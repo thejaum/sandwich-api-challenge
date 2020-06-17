@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,7 @@ import com.thejaum.challenge.sandwich.dto.AddItemOrderDTO;
 import com.thejaum.challenge.sandwich.service.OrderService;
 
 @RestController
-@RequestMapping("v1/orders")
+@RequestMapping("v1")
 public class OrderController {
 
 	@Autowired
@@ -28,26 +29,25 @@ public class OrderController {
 		this.service = service;
 	}
 	
-	
-	@GetMapping
+	@GetMapping("/protected/orders")
 	public ResponseEntity<?> getAll(
 			@RequestParam(value="status", required=false) String status) {
 		return new ResponseEntity<>(service.getAllByQueryStringParameters(status),HttpStatus.OK);
 	}
 	
-	@GetMapping("/{order_id}")
+	@GetMapping("/protected/orders/{order_id}")
 	public ResponseEntity<?> getById(
 			@PathVariable("order_id") UUID id){
 		return new ResponseEntity<>(service.getOrderById(id),HttpStatus.OK);
 	}
 	
-	@PostMapping
+	@PostMapping("/protected/orders")
 	@Transactional(rollbackFor = Exception.class)
 	public ResponseEntity<?> create() {
         return new ResponseEntity<>(service.createNewOrder(),HttpStatus.CREATED);
     }
 	
-	@PostMapping("/{order_id}/itens/")
+	@PostMapping("/protected/orders/{order_id}/itens/")
 	@Transactional(rollbackFor = Exception.class)
 	public ResponseEntity<?> addItem(
 			@PathVariable("order_id") UUID order_id,

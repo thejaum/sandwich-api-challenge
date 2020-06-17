@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.thejaum.challenge.sandwich.config.OrderStatusPattern;
 import com.thejaum.challenge.sandwich.dto.AddItemOrderDTO;
 import com.thejaum.challenge.sandwich.models.Additional;
 import com.thejaum.challenge.sandwich.models.Addon;
@@ -23,6 +22,7 @@ import com.thejaum.challenge.sandwich.models.Product;
 import com.thejaum.challenge.sandwich.repository.OrderItemRepository;
 import com.thejaum.challenge.sandwich.repository.OrderRepository;
 import com.thejaum.challenge.sandwich.repository.custom.OrderRepositoryCustom;
+import com.thejaum.challenge.sandwich.util.OrderStatusPattern;
 
 @Service
 public class OrderService {

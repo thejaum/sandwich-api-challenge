@@ -70,12 +70,4 @@ public class OfferService {
 	}
 	
 	
-	/*Long amountFound = addonList.stream()
-	.map(x -> x.compareTo(rule.getAddon().getId()))
-	.count();
-if((amountFound >= rule.getAmount() && rule.isPresence())
-   || (amountFound <= rule.getAmount() && !rule.isPresence())) 
-	continue;
-isPromotional = false;*/
-	
 }

@@ -1,4 +1,4 @@
-package com.thejaum.challenge.sandwich.config;
+package com.thejaum.challenge.sandwich.util;
 
 public enum OrderStatusPattern {
 	EM_ANDAMENTO,
