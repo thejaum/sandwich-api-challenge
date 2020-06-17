@@ -1,0 +1,46 @@
+-=Desenvolvendo logicas para o desafio=-
+
+* Preço dos lanches é a soma dos ingredientes
+    x-bacon -> bacon,hamburguer,queijo -> 06,50
+
+* Promoções 
+    Muita carne e Muito queijo é o desconto de 1/3
+        3 -> 3 / 3 = 1, 3 - 1 = 2
+        6 -> 6 / 3 = 2, 6 -2 = 4
+        9 -> 9 / 3 = 3, 9 - 3 = 6
+        ...
+    Apenas para quantidades multiplos de 3
+        $valor % 3 == 0 ? 
+            $valor 
+        :
+        Se o valor em si não for multiplo de 3 e for > 3,
+        encontre o multiplo mais proximo.
+            ($valor - 1) % 3 == 0 ?
+                ($valor - 1)
+            :
+                ($valor + 1);
+
+* Será exibido no cardapio todo produto ativo;
+
+* Será exibido como adicionais todo complemento ativo;
+
+* Nunca deve permitir deletar produtos, ingredientes 
+  ou promoções apenas inativalos;
+
+* Quais necessidades fazem parte da operação ?
+    Cadastrar/Alterar ou Ativar/Inativar ingredientes;
+    Cadastrar/Alterar ou Ativar/Inativar produtos;
+    Cadastrar/Alterar ou Ativar/Inativar promoções;
+    Adicionar/Remover ingredientes de um produto;
+    Exibir um cardapio com os produtos a venda;
+    Exibir a lista de possiveis ingredientes adicionais;    
+    Adicionar produtos ao carrinho de compras;
+    Calcular descontos sempre que um produtos é adicionado ao carrinho;
+    Completar pedido dos podutos no carrinho;
+
+* Recursos/Endpoints
+    /products                 
+    /addons
+    /orders
+    /offers
+    

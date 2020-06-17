@@ -1,0 +1,196 @@
+{
+    "enpoints":[
+        {
+            "method":"POST",
+            "uri":"/example",
+            "description":"Example",
+            "header":[
+                {
+                    "key":"Authorization",
+                    "type":"string",
+                    "required":"true",
+                    "descripition":"Authorization code."
+                }
+                
+            ],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/orders",
+            "description":"Return a list of orders.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"POST",
+            "uri":"/orders",
+            "description":"Create an new order.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/orders/{order_id}",
+            "description":"Return an specific order.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"PATCH",
+            "uri":"/orders/{order_id}/status",
+            "description":"Change the status of an order.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/orders/{order_id}/itens",
+            "description":"Retrieve an list of itens in the order.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/orders/{order_id}/itens/{order_item_id}",
+            "description":"Retrieve a specific item from an order.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"POST",
+            "uri":"/orders/{order_id}/itens",
+            "description":"Add an new item in the order.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"PUT",
+            "uri":"/orders/{order_id}/itens/{order_item_id}",
+            "description":"Update entire information of a specific item from an order.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"DELETE",
+            "uri":"/orders/{order_id}/itens/{order_item_id}",
+            "description":"Remove a specific item from an order.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/addons",
+            "description":"Return a list of addons.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"POST",
+            "uri":"/addons",
+            "description":"Create an new addon.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/addons/{addon_id}",
+            "description":"Return an specific addon.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"PUT",
+            "uri":"/addons/{addon_id}",
+            "description":"Update entire information of an addon.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/products",
+            "description":"Retrieve a list of products.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/products/{product_id}",
+            "description":"Retrieve an specific product.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"POST",
+            "uri":"/products",
+            "description":"Create an new product.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"PUT",
+            "uri":"/products/{product_id}",
+            "description":"Update entire information of an product.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/products/{product_id}/composition",
+            "description":"Retrieve all addons that compose the product.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },  
+        {
+            "method":"POST",
+            "uri":"/products/{product_id}/composition",
+            "description":"Add a new addon in the product composition.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"DELETE",
+            "uri":"/products/{product_id}/composition/{addon_id}",
+            "description":"Delete a addon from the product composition.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/offers",
+            "description":"Retrieve a list of offers.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        },
+        {
+            "method":"GET",
+            "uri":"/offers/{offer_id}",
+            "description":"Retrieve an specific offer.",
+            "header":[],
+            "query_string":[],
+            "request_body":[]
+        }     
+    ]
+}
