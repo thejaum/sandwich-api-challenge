@@ -10,11 +10,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.EqualsAndHashCode;
@@ -43,5 +46,9 @@ public class Order {
 	@OneToMany(mappedBy = "order",targetEntity = OrderItem.class, fetch = FetchType.LAZY)
 	@JsonManagedReference
 	private List<OrderItem> itens;
+	@ManyToOne
+	@JoinColumn(name="user_id", nullable = false)
+	@JsonBackReference
+	private User user;
 	
 }

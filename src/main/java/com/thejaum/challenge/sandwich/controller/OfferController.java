@@ -1,12 +1,13 @@
 package com.thejaum.challenge.sandwich.controller;
 
+import static com.thejaum.challenge.sandwich.util.ApiSecurityPath.PROTECTED;
+
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,8 @@ import com.thejaum.challenge.sandwich.service.OfferService;
 @RestController
 @RequestMapping("v1")
 public class OfferController {
-
+	private final String RESOURCE = "offers";
+	
 	@Autowired
 	private final OfferService service;
 
@@ -27,7 +29,7 @@ public class OfferController {
 		this.service = service;
 	}
 	
-	@GetMapping("/protected/offers")
+	@GetMapping(PROTECTED+"/"+RESOURCE)
 	public ResponseEntity<?> getAll(){
 		try {
 			List<Offer> offer_list = service.getOfferList();
@@ -38,7 +40,7 @@ public class OfferController {
 		}
 	}
 	
-	@GetMapping("/protected/offers/{id}")
+	@GetMapping(PROTECTED+"/"+RESOURCE+"/{id}")
 	public ResponseEntity<?> getById(
 			@PathVariable(value = "id") UUID id){
 		try {

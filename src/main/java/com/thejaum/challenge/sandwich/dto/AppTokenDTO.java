@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AppToken {
+public class AppTokenDTO {
 
 	@JsonProperty(value = "acess_token",required = true)
 	private String acessToken;

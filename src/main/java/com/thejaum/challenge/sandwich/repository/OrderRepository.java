@@ -9,5 +9,5 @@ import com.thejaum.challenge.sandwich.models.Order;
 
 @Repository
 public interface OrderRepository extends CrudRepository<Order,UUID>{
-		
+	
 }

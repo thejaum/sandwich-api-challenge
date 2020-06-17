@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,6 +39,7 @@ public class Additional {
 	
 	@ManyToOne
 	@JoinColumn(name="order_item_id", nullable = false)
+	@JsonBackReference
 	private OrderItem orderItem;
 	
 	@Column(name = "amount")

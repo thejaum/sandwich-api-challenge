@@ -12,7 +12,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.classmate.TypeResolver;
-import com.thejaum.challenge.sandwich.dto.AppToken;
+import com.thejaum.challenge.sandwich.dto.AppTokenDTO;
 import com.thejaum.challenge.sandwich.dto.UserLoginDTO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -44,7 +44,7 @@ public class SwaggerLoginListingScanner implements ApiListingScannerPlugin {
         Set<String> tags = new HashSet<>();
         tags.add("security");
         context.getAdditionalModels().add(new TypeResolver().resolve(UserLoginDTO.class));
-        context.getAdditionalModels().add(new TypeResolver().resolve(AppToken.class));
+        context.getAdditionalModels().add(new TypeResolver().resolve(AppTokenDTO.class));
     	return new ArrayList<>(
                 Arrays.asList(
                         new ApiDescription(null, "/login", "login", Collections.singletonList(
@@ -69,7 +69,7 @@ public class SwaggerLoginListingScanner implements ApiListingScannerPlugin {
                                                                 .build()
                                                 )
                                         ).responseMessages(responseMessages())
-                                        .responseModel(new ModelRef(("AppToken")))
+                                        .responseModel(new ModelRef(("AppTokenDTO")))
                                         .build()
                         ), false)));
     }
@@ -78,7 +78,7 @@ public class SwaggerLoginListingScanner implements ApiListingScannerPlugin {
     	Set<ResponseMessage> responses = new HashSet<>();
     	responses.add(new ResponseMessageBuilder()
                 .code(200)
-                .responseModel(new ModelRef("AppToken"))
+                .responseModel(new ModelRef("AppTokenDTO"))
                 .message("OK")
                 .build());
     	/*responses.add(new ResponseMessageBuilder()

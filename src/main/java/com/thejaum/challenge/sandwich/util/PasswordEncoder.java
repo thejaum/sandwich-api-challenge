@@ -1,4 +1,4 @@
-package com.thejaum.challenge.sandwich.service;
+package com.thejaum.challenge.sandwich.util;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

@@ -21,7 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.thejaum.challenge.sandwich.dto.AppToken;
+import com.thejaum.challenge.sandwich.dto.AppTokenDTO;
 import com.thejaum.challenge.sandwich.models.User;
 
 import io.jsonwebtoken.Jwts;
@@ -59,7 +59,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .signWith(SignatureAlgorithm.HS512, SECRET)
                 .compact();
         String bearerToken = TOKEN_PREFIX + token;
-        AppToken appToken = new AppToken();
+        AppTokenDTO appToken = new AppTokenDTO();
         appToken.setAcessToken(bearerToken);
         appToken.setExpirationTime(EXPIRATION_TIME);
         response.getWriter().write(gson.toJson(appToken));

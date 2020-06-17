@@ -43,14 +43,15 @@ public class Offer {
 	@Column(name="identifier_name",nullable=false,unique = true)
 	private String identifierName;
 	
-	@Column(name="discount",nullable=false)
-	private int discount;
-	
-	@Column(name="accumulative",nullable=false)
-	private boolean accumulative;
-	
 	@Column(name="whole_order",nullable=false)
 	private boolean wholeOrder;
+	@Column(name="discount_percentage",nullable=false)
+	private int discountPercentage;
+	
+	@Column(name="discount_amount",nullable=false)
+	private int discount_amount;
+	@Column(name="accumulative",nullable=false)
+	private boolean accumulative;
 	
 	@OneToMany(mappedBy = "offer", fetch = FetchType.EAGER)
 	@JsonManagedReference
