@@ -8,5 +8,4 @@ public class SandwichApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SandwichApplication.class, args);
 	}
-
 }
